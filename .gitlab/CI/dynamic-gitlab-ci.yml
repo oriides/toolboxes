@@ -1,13 +1,12 @@
 default:
   image: docker:24.0
-  stage: build
   services:
     - name: docker:24.0-dind
       alias: docker
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
-finally:
+echo:
   stage: build
   image: alpine:3.18
   script:
