@@ -2,12 +2,23 @@
 
 cd images
 
-for folder in *; do
-    echo "Building $folder image"
+file="./changed_images"
 
-    # build image
-    docker build -t $CI_REGISTRY/oriides/toolboxes/$folder:$CI_COMMIT_SHORT_SHA -t $CI_REGISTRY/oriides/toolboxes/$folder:latest ./$folder/
+# Check if the file exists
+if [ -f "$file" ]; then
+    # Read and print each line
+    while IFS= read -r line; do
+        echo "Building $line image"
 
-    # push image to registry
-    docker push --all-tags $CI_REGISTRY/oriides/toolboxes/$folder
-done
+        # build image
+        docker build -t $CI_REGISTRY/oriides/toolboxes/$line:$CI_COMMIT_SHORT_SHA -t $CI_REGISTRY/oriides/toolboxes/$line:latest ./$line/
+
+        # push image to registry
+        docker push --all-tags $CI_REGISTRY/oriides/toolboxes/$line
+
+    done < "$file"
+else
+    echo "File not found: $file"
+    echo "This file is supposed to be provided by previous job check-for-changes, did it run successfully and provide the artifact?"
+    exit 1
+fi
