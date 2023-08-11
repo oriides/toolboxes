@@ -2,5 +2,6 @@ FROM registry.fedoraproject.org/fedora-toolbox:38
 
 RUN dnf install -y zsh
 
-RUN dnf install -y java-latest-openjdk
-RUN dnf install -y maven
+RUN dnf install kubernetes
+RUN dnf install kompose
+RUN dnf install helm
