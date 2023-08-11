@@ -2,13 +2,13 @@ stages:
   - build
 
 update-images:
-  image: docker:20.10
+  image: docker:24.0
   stage: build
   services:
-    - name: docker:20.10-dind
+    - name: docker:24.0-dind
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - ./update-images.sh
+    - .gitlab/CI/update-images.sh
 
 

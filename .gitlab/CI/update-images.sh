@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
-for folder in ./images/; do
+cd images
+
+for folder in *; do
     echo "Building $folder image"
 
     # build image
