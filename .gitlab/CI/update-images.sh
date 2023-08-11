@@ -6,6 +6,8 @@ file="./changed_images"
 
 # Check if the file exists
 if [ -f "$file" ]; then
+    echo "updating modified images..."
+
     # Read and print each line
     while IFS= read -r line; do
         echo "Building $line image"

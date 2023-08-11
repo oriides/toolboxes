@@ -14,7 +14,6 @@ check-for-changes:
       - "./images/changed_images"
     expire_in: 2 days
 
-
 update-images:
   image: docker:24.0
   stage: build
