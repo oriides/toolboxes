@@ -22,7 +22,7 @@ create-jobs:
     - job: check-for-changes
       artifacts: true
   script:
-    - .gitlab/CI/update-images.sh
+    - .gitlab/CI/create-jobs.sh
   artifacts:
     paths:
       - ".gitlab/CI/dynamic-gitlab-ci.yml"

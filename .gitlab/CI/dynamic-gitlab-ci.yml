@@ -5,3 +5,9 @@ default:
       alias: docker
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+finally:
+  stage: .post
+  image: alpine:3.18
+  script:
+    - echo "updated all images"
