@@ -1,22 +1,16 @@
 #!/bin/sh
 
-cd images
-
-file="./changed_images"
+file="images/changed_images"
 
 # Check if the file exists
 if [ -f "$file" ]; then
-    echo "updating modified images..."
+    echo "creating build jobs for modified images..."
 
     # Read and print each line
     while IFS= read -r line; do
-        echo "Building $line image"
+        echo "creating build job for \"$line\" image"
 
-        # build image
-        docker build -t $CI_REGISTRY/oriides/toolboxes/$line:$CI_COMMIT_SHORT_SHA -t $CI_REGISTRY/oriides/toolboxes/$line:latest ./$line/
-
-        # push image to registry
-        docker push --all-tags $CI_REGISTRY/oriides/toolboxes/$line
+        IMAGE=$line .gitlab/CI/create-jobs.sh
 
     done < "$file"
 else

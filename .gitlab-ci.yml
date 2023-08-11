@@ -1,5 +1,6 @@
 stages:
   - check
+  - prepare-jobs
   - build
 
 check-for-changes:
@@ -14,16 +15,26 @@ check-for-changes:
       - "./images/changed_images"
     expire_in: 2 days
 
-update-images:
-  image: docker:24.0
-  stage: build
+create-jobs:
+  image: debian:stable-slim
+  stage: prepare-jobs
   needs:
     - job: check-for-changes
       artifacts: true
-  services:
-    - name: docker:24.0-dind
-      alias: docker
-  before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
     - .gitlab/CI/update-images.sh
+  artifacts:
+    paths:
+      - ".gitlab/CI/dynamic-gitlab-ci.yml"
+    expire_in: 2 days
+
+trigger-builds:
+  stage: build
+  needs:
+    - job: create-jobs
+      artifacts: true
+  trigger:
+    include:
+      - artifact: .gitlab/CI/dynamic-gitlab-ci.yml # this file is generated on runtime in the prepare-jobs stage
+        job: create-jobs
+    strategy: depend
