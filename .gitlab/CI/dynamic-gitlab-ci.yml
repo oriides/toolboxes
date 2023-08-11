@@ -6,8 +6,7 @@ default:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
-echo:
+dummy:
   stage: build
-  image: alpine:3.18
   script:
     - echo "updated all images"
