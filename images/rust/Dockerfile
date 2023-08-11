@@ -4,6 +4,7 @@ RUN dnf install -y zsh
 
 # install rust toolchain
 RUN dnf install -y rust
+RUN dnf install -y cargo
 
 # install common development dependencies
 RUN dnf install -y openssl openssl-devel
