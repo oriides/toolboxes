@@ -34,3 +34,4 @@ trigger-builds:
     include:
       - artifact: .gitlab/CI/dynamic-gitlab-ci.yml # this file is generated on runtime in the prepare-jobs stage
         job: create-jobs
+    strategy: depend
