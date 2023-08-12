@@ -1,6 +1,6 @@
 # Rust
 
-Development environment for Rust
+Rust development environment for [Toolbox](containertoolbx.org/)
 
 ## usage
 
