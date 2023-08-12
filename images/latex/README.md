@@ -9,5 +9,3 @@ after you created the toolbox with this image, you can enter the environment by 
 ```bash
 toolbox enter <container-name>
 ```
-
-You now have access to the texlive toolchain.
