@@ -7,7 +7,7 @@ Rust development environment for [Toolbox](containertoolbx.org/)
 after you created the toolbox with this image, you can enter the environment by running
 
 ```bash
-toolbox enter rust
+toolbox enter <container-name>
 ```
 
 You now have access to the rust toolchain.
@@ -17,4 +17,3 @@ You now have access to the rust toolchain.
 > ```bash
 > install-crates
 > ```
->
