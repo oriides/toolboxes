@@ -7,6 +7,6 @@ build:$IMAGE:
   variables:
     IMAGE: $IMAGE
   script:
-    - docker build -t $CONTAINER_REGISTRY/oriides/toolbox-$IMAGE:$CI_COMMIT_SHORT_SHA -t $CONTAINER_REGISTRY/oriides/toolbox-$IMAGE:latest ./images/$IMAGE/
-    - docker push --all-tags $CONTAINER_REGISTRY/oriides/toolbox-$IMAGE
+    - docker build -t $CONTAINER_REGISTRY/$CONTAINER_REGISTRY_USER/toolbox-$IMAGE:$CI_COMMIT_SHORT_SHA -t $CONTAINER_REGISTRY/$CONTAINER_REGISTRY_USER/toolbox-$IMAGE:latest ./images/$IMAGE/
+    - docker push --all-tags $CONTAINER_REGISTRY/$CONTAINER_REGISTRY_USER/toolbox-$IMAGE
 EOM
