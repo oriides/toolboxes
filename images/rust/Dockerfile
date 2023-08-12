@@ -11,4 +11,4 @@ RUN dnf install -y openssl openssl-devel
 RUN dnf install -y @c-development
 
 # copy install script
-COPY ./install.sh /usr/bin/install.sh
+COPY ./res/install-crates /usr/bin/install-crates
