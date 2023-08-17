@@ -1,7 +1,7 @@
 # toolboxes
 
 This repo contains the configuration files for my [toolbox](containertoolbx.org/) images.  
-The images themselves can be found on [Docker HUB](https://hub.docker.com/u/oriides) of this repository
+The images themselves can be found on [Docker HUB](https://hub.docker.com/u/oriides).
 
 Images are automatically updated by the pipeline if changes have been made to the files in the image folders.  
 ![pipeline status](https://gitlab.com/oriides/toolboxes/badges/main/pipeline.svg)
