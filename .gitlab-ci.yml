@@ -12,7 +12,7 @@ check-for-changes:
     - .gitlab/CI/check-for-changes.sh
   artifacts:
     paths:
-      - "./images/changed_images"
+      - "./changed_images"
     expire_in: 2 days
 
 create-jobs:

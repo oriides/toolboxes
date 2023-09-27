@@ -1,6 +1,6 @@
 #!/bin/sh
 
-file="images/changed_images"
+file="./changed_images"
 
 # Check if the file exists
 if [ -f "$file" ]; then
