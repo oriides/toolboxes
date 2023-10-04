@@ -41,3 +41,5 @@ trigger-builds:
     strategy: depend
     forward:
       pipeline_variables: true
+  only:
+    - main
