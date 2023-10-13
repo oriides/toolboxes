@@ -14,6 +14,8 @@ check-for-changes:
     paths:
       - "./changed_images"
     expire_in: 2 days
+  only:
+    - main
 
 create-jobs:
   image: debian:stable-slim
@@ -27,6 +29,8 @@ create-jobs:
     paths:
       - ".gitlab/CI/dynamic-gitlab-ci.yml"
     expire_in: 2 days
+  only:
+    - main
 
 trigger-builds:
   stage: build
@@ -37,3 +41,5 @@ trigger-builds:
     strategy: depend
     forward:
       pipeline_variables: true
+  only:
+    - main
