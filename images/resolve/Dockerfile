@@ -7,6 +7,6 @@ RUN dnf install -y alsa-plugins-pulseaudio libxcrypt-compat xcb-util-renderutil 
 # amd GPU
 RUN dnf install -y rocm-opencl
 # nvidia GPU
-RUN dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
+#RUN dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
 # intel GPU
 RUN dnf install -y intel-compute-runtime
