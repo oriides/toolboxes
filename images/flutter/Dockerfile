@@ -11,12 +11,12 @@ RUN dnf install -y gtk3-devel
 RUN dnf install -y java-latest-openjdk
 
 # downlaod flutter sdk
-RUN curl -o /tmp/flutter.tar.xz https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.13.7-stable.tar.xz
+RUN curl -o /tmp/flutter.tar.xz https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.24.3-stable.tar.xz
 RUN tar xf /tmp/flutter.tar.xz -C /usr/share
 ENV PATH="${PATH}:/usr/share/flutter/bin"
 
 # download android sdk
-RUN curl -o /tmp/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
+RUN curl -o /tmp/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
 RUN mkdir /usr/share/android-sdk
 RUN unzip /tmp/cmdline-tools.zip -d /usr/share/android-sdk
 ENV PATH="${PATH}:/usr/share/android-sdk/cmdline-tools/bin"
