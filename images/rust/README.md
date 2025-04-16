@@ -15,3 +15,9 @@ toolbox enter <container-name>
 > ```bash
 > install-crates
 > ```
+
+## Image details
+
+This toolbox image contains the following tools:
+
+// TODO: update image and add details here

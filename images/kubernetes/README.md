@@ -10,9 +10,9 @@ after you created the toolbox with this image, you can enter the environment by 
 toolbox enter <container-name>
 ```
 
-## Image information
+## Image details
 
-This image contains the following tools:
+This toolbox image contains the following tools:
 
 - [flux](https://fluxcd.io/)
 - [helm](https://helm.sh/)
@@ -24,6 +24,6 @@ This image contains the following tools:
 - [kubectl ns](https://github.com/ahmetb/kubectx)
 - [kubectl stern](https://github.com/stern/stern)
 
-> ![NOTE]
+> [!NOTE]
 > flux and kind have pinned versions, that need to be kept up-to-date manually.
 > (See Dockerfile for details)

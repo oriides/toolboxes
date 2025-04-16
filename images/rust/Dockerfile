@@ -1,3 +1,5 @@
+# TODO: fix this mess
+
 FROM registry.fedoraproject.org/fedora-toolbox:latest
 
 RUN dnf install -y zsh

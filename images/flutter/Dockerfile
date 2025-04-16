@@ -1,24 +1,26 @@
+# TODO: migrate to a ubuntu based toolbox and fix this mess
+
 FROM registry.fedoraproject.org/fedora-toolbox:latest
 
-RUN dnf install -y zsh
+RUN dnf install -y zsh \
+    @c-development \
+    clang \
+    cmake \
+    ninja-build \
+    gtk3-devel \
+    java-latest-openjdk \
+    && dnf clean all \
+  	&& rm -rf /var/cache/yum
 
-# install development dependencies
-RUN dnf install -y @c-development
-RUN dnf install -y clang
-RUN dnf install -y cmake
-RUN dnf install -y ninja-build
-RUN dnf install -y gtk3-devel
-RUN dnf install -y java-latest-openjdk
-
-# downlaod flutter sdk
-RUN curl -o /tmp/flutter.tar.xz https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.24.3-stable.tar.xz
-RUN tar xf /tmp/flutter.tar.xz -C /usr/share
+# download flutter sdk
+RUN curl -o /tmp/flutter.tar.xz https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.24.3-stable.tar.xz \
+    && tar xf /tmp/flutter.tar.xz -C /usr/share
 ENV PATH="${PATH}:/usr/share/flutter/bin"
 
 # download android sdk
-RUN curl -o /tmp/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
-RUN mkdir /usr/share/android-sdk
-RUN unzip /tmp/cmdline-tools.zip -d /usr/share/android-sdk
+RUN curl -o /tmp/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip \
+    && mkdir -p /usr/share/android-sdk \
+    && unzip /tmp/cmdline-tools.zip -d /usr/share/android-sdk
 ENV PATH="${PATH}:/usr/share/android-sdk/cmdline-tools/bin"
 ENV ANDROID_SDK_ROOT="/usr/share/android-sdk"
 RUN yes | /usr/share/android-sdk/cmdline-tools/bin/sdkmanager 'cmdline-tools;latest' --sdk_root=/usr/share/android-sdk

@@ -23,7 +23,7 @@ Images are automatically updated by the pipeline if changes have been made to th
     for example:
 
     ```bash
-    toolbox create rust -i docker.io/oriides/toolbox-rust:latest
+    toolbox create kubernetes -i docker.io/oriides/toolbox-kubernetes:latest
     ```
 
 3. enter the toolbox container
