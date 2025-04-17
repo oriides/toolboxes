@@ -26,8 +26,12 @@ RUN ( \
 
 ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-RUN [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-amd64 \
+RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/latest/kind-linux-amd64 \
 && chmod +x ./kind \
 && mv ./kind /usr/local/bin/kind
+
+RUN curl -Lo ./kubebuilder https://github.com/kubernetes-sigs/kubebuilder/releases/latest/download/kubebuilder_linux_amd64 \
+&& chmod +x ./kubebuilder \
+&& mv ./kubebuilder /usr/local/bin/kubebuilder
 
 COPY --from=flux /usr/local/bin/flux /usr/local/bin/flux
