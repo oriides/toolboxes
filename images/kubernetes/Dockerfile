@@ -1,5 +1,3 @@
-FROM fluxcd/flux-cli:v2.5.1 AS flux
-
 FROM registry.fedoraproject.org/fedora-toolbox:latest
 
 RUN dnf install -y zsh \
@@ -34,4 +32,4 @@ RUN curl -Lo ./kubebuilder https://github.com/kubernetes-sigs/kubebuilder/releas
 && chmod +x ./kubebuilder \
 && mv ./kubebuilder /usr/local/bin/kubebuilder
 
-COPY --from=flux /usr/local/bin/flux /usr/local/bin/flux
+RUN curl -s https://fluxcd.io/install.sh | sudo bash
